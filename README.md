@@ -14,4 +14,5 @@ So this server will simply forwards the file packets back to you over this encry
 ### Limitations?
 
 * Doesn't support file resuming.
-* Support files which are publicly accessible.
+* Support files which are publicly accessible only.
+* Fast downloads are not available, only one connection is supported per file.
