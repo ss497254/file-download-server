@@ -38,8 +38,6 @@ app.get("/download/*", (req, res) => {
   const downloadUrl = req.protocol + "://" + req.hostname + req.path;
   const url = req.path.replace("/download/", "");
 
-  download.push({ url, contentType, downloadUrl });
-
   if (!isValidUrl(url)) {
     return res.status(401).send({ message: "invalid url" });
   }
@@ -48,6 +46,8 @@ app.get("/download/*", (req, res) => {
     const contentType = response.headers["content-type"] || "";
 
     res.setHeader("Content-Type", contentType);
+
+    download.push({ url, contentType, downloadUrl });
 
     response.pipe(res);
   });
